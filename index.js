@@ -27,7 +27,7 @@ const handleSubmit = function(ev) {
   console.log(form)
   const movie = {
     'Movie': form.movieName.value,
-    // '/action_page.php': form.genre.value,
+    'Genre': form.genre.value,
   }
 console.log(movie)
   const list = renderList(movie)
