@@ -20,16 +20,13 @@ function renderList(data) {
   return list
 }
 
-const handleSubmit = function(ev) {
-  console.log('I\'m clicking the go button')  
+const handleSubmit = function(ev) { 
   ev.preventDefault()
   const form = ev.target
-  console.log(form)
   const movie = {
     'Movie': form.movieName.value,
     'Genre': form.genre.value,
   }
-console.log(movie)
   const list = renderList(movie)
   const movies = document.querySelector('#movies')
   movies.appendChild(list)
