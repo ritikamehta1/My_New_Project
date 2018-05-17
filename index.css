@@ -5,7 +5,9 @@ body {
 } 
 
 main {
-  display: flex;
+  width: 80%;
+  margin: 1rem auto;
+  
   justify-content: space-around;      
 }
 
