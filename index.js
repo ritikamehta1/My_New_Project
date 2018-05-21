@@ -29,6 +29,28 @@ class App {
         
     }
 
+    toggleEditable(flick, ev) {
+        const btn = ev.target
+        const item = btn.closest('.flick')
+        const nameField = item.querySelector('.flickName')
+
+        if (nameField.isContentEditable) {
+            //make it no longer editable
+            nameField.contentEditable = false
+            btn.textContent = 'edit'
+            btn.classList.remove('success')
+
+            //save changes
+            flick.name = nameField.textContent
+        } else {
+            //make it editable
+            nameField.contentEditable = true
+            nameField.focus()
+            btn.textContent = 'save'
+            btn.classList.add('success')
+        }
+    }
+
     renderListItem(flick) {
         const item = this.template.cloneNode(true)
         item.classList.remove('template')
@@ -47,6 +69,14 @@ class App {
                 'click',
                 this.favFlick.bind(this, flick)
             )
+        
+        item   
+            .querySelector('.edit.button')
+            .addEventListener(
+                'click',
+                this.toggleEditable.bind(this, flick)
+            )
+
         
             return item
     }
