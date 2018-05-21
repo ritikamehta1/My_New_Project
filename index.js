@@ -13,6 +13,11 @@ const app = {
             })     
     }, 
 
+    removeFlick(ev) {
+        const item = ev.target.closest('.flick')
+        item.remove()
+    },
+
     renderListItem(flick) {
         const item = this.template.cloneNode(true)
         item.classList.remove('template')
@@ -20,6 +25,10 @@ const app = {
         item
             .querySelector('.flickName')
             .textContent = flick.name
+
+        item
+            .querySelector('.remove.button')
+            .addEventListener('click', this.removeFlick) 
         return item
     },
 
@@ -35,17 +44,6 @@ const app = {
 
       const item = this.renderListItem(flick)
       this.list.insertBefore(item, this.list.firstElementChild)
-
-      const deleteButton = item.querySelector(".actions").querySelector(".alert");
-      deleteButton.addEventListener("click", ev => {
-          for(var i=0; i<this.flicks.length; i++){
-              if(this.flicks[i].id === flick.id){
-                  this.flicks.splice(i,1);
-              }
-          }
-            deleteButton.parentNode.parentNode.remove();
-      })
-
 
       f.reset()
     },
