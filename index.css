@@ -34,3 +34,7 @@ dl li {
 .template {
     display: none;
 }
+
+.flick.fav {
+    background-color: #ff62f2
+}
